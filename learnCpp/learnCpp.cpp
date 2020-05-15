@@ -2,11 +2,30 @@
 //
 
 #include <iostream>
+#include "Heater.h"
+
+
+void alarm(int temperature)
+{
+    std::cout << "滴滴滴I滴滴滴, 水温过高!!!" << std::endl;
+}
+
+
+void display(int temperature)
+{
+    std::cout << "当前水温:" << temperature << "C°" << std::endl;
+    std::cout << std::endl;
+}
 
 
 int main()
 {
-   
+    Heater heater;
+    // heater.onBoil = display;
+    heater.onBoilEvents.push_back(alarm);
+    heater.onBoilEvents.push_back(display);
+    heater.boilWater();
+
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
