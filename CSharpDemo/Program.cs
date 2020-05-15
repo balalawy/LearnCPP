@@ -55,6 +55,11 @@ namespace CSharpDemo
             gm2.MakeGreet += ChineseGreeting;
             gm2.GreetPeople2("Vaneyu");
 
+            // 烧水:
+            Heater heater = new Heater();
+            heater.boilEvent += new Alarm().alarm;
+            heater.boilEvent += new Display().display;
+            heater.boilWater();
         }
     }
 }
