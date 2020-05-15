@@ -41,6 +41,20 @@ namespace CSharpDemo
             delegateFunc = EnglishGreeting;
             delegateFunc += ChineseGreeting;
             GreetPeople("Jake", delegateFunc);
+
+            // 使用委托方式三：
+            // 进行封装
+            GreetingManager gm = new GreetingManager();
+            gm.delegate1 = EnglishGreeting;
+            gm.delegate1 += ChineseGreeting;
+            gm.GreetPeople("Yumy");
+
+            // 使用事件:
+            GreetingManager gm2 = new GreetingManager();
+            gm2.MakeGreet += EnglishGreeting;
+            gm2.MakeGreet += ChineseGreeting;
+            gm2.GreetPeople2("Vaneyu");
+
         }
     }
 }
